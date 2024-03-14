@@ -3,8 +3,6 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-
-// 配置element plus 按需导入
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -13,12 +11,14 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   plugins: [
     vue(),
-    AutoImport({
+     // ...
+     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      // 配置elementPlus采用sass样式配色系统
-      resolvers: [ElementPlusResolver({importStyle:"sass"})],
+      resolvers: [
+        ElementPlusResolver({importStyle:"sass"})
+      ],
     }),
   ],
   resolve: {
@@ -33,7 +33,6 @@ export default defineConfig({
         additionalData: `
           @use "@/styles/element/index.scss" as *;
           @use "@/styles/var.scss" as *;
-
         `,
       }
     }

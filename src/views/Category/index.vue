@@ -1,3 +1,5 @@
 <template>
-  我是Home页面
+  <div>
+    我是分类页
+  </div>
 </template>
