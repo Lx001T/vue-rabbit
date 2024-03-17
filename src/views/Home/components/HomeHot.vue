@@ -18,9 +18,9 @@ onMounted(() => getHostList())
     <ul class="goods-list">
     <li v-for="item in HotList" :key="item.id">
       <RouterLink to="/">
-        <img :src="item.picture" alt="" />
-        <p class="name">{{ item.name }}</p>
-        <p class="price">&yen;{{ item.price }}</p>
+        <img v-img-lazy="item.picture" alt="" />
+        <p class="name">{{ item.title }}</p>
+        <p class="alt">{{ item.alt }}</p>
       </RouterLink>
     </li>
   </ul>
@@ -70,10 +70,6 @@ onMounted(() => getHostList())
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-    }
-
-    .price {
-      color: $priceColor;
     }
   }
 }
